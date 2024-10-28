@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>DocuScan-AI</h1>
       <UploadComponent setExtractedData={setExtractedData} />
       {extractedData && <DataDisplayComponent data={extractedData} />}
       <SearchComponent setSearchResults={setSearchResults} />
