@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/ai-form-recognizer": "^5.0.0",
+    "@azure/cognitiveservices-contentmoderator": "^5.0.1",
+    "@azure/search-documents": "^12.1.0",
     "@azure/storage-blob": "^12.25.0",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
