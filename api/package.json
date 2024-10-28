@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure-rest/ai-document-intelligence": "^1.0.0-beta.3",
     "@azure/ai-form-recognizer": "^5.0.0",
     "@azure/cognitiveservices-contentmoderator": "^5.0.1",
+    "@azure/identity": "^4.5.0",
     "@azure/search-documents": "^12.1.0",
     "@azure/storage-blob": "^12.25.0",
     "axios": "^1.7.7",
