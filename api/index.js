@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors()); // Enable CORS
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'upload/' });
 
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 const FORM_RECOGNIZER_ENDPOINT = process.env.FORM_RECOGNIZER_ENDPOINT;
@@ -36,16 +36,8 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
     const { setLogLevel } = require("@azure/logger");
     setLogLevel("info");
 
-     // Use the REST SDK to analyze the document
-     const poller = await client.path("/analyze").post({
-        body: {
-          documentUrl: blobUrl,
-          modelId: "prebuilt-invoice"
-        },
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
+    const poller = await client.beginAnalyzeDocument("prebuilt-invoice", invoiceUrl);
+
     const result = await poller.pollUntilDone();
 
     res.json(result);
